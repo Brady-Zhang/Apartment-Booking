@@ -1,4 +1,5 @@
-﻿using EasyBook.Domain.Abstractions;
+﻿using Bookify.Domain.Users.Events;
+using EasyBook.Domain.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,9 @@ namespace Bookify.Domain.Users
         public static User Create(Guid Id, Email email, FirstName firstName, LastName lastname)
         {
             var user = new User(Guid.NewGuid(), email, firstName, lastname);
+
+            user.RaiseDomainEvent(new UserCreatedDomainEvent(user.Id));
+
             return user;
         }
     }
