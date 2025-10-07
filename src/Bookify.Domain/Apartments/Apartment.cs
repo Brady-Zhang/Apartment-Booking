@@ -1,4 +1,5 @@
-﻿using EasyBook.Domain.Abstractions;
+﻿using Bookify.Domain.Shared;
+using EasyBook.Domain.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace EasyBook.Domain.Apartments
         public Address Address { get; private set; }
         public Money Price { get; private set; }
         public Money CleaningFee { get; private set; }
-        public DateTime? LastBookedOnUtc { get; private set; }
+        public DateTime? LastBookedOnUtc { get; internal set; }
         public List<Amenity> Amenities { get; private set; } = new();
 
     }
